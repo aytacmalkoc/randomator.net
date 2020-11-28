@@ -2,6 +2,19 @@
   "name": "randomator.net",
   "version": "0.1.0",
   "private": true,
+  "keywords": [
+    "random",
+    "random password",
+    "random text",
+    "random string",
+    "random number",
+    "random generator"
+  ],
+  "author": {
+    "name": "Aytac Malkoc",
+    "email": "iletisim@aytacmalkoc.com.tr",
+    "url": "https://www.aytacmalkoc.com.tr"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
@@ -9,6 +22,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    "vue-device-detector": "^1.1.6",
+    "vue-meta": "^2.4.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

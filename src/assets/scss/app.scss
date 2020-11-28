@@ -1,0 +1,77 @@
+@import './customizer.scss';
+@import '../bulma/bulma.sass';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: normal;
+}
+
+.w100{
+  width: 100% !important;
+}
+
+.navbar-brand {
+  .logo {
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    span {
+      color: $primaryColor;
+    }
+    &:hover {
+      color: hsl(0, 0%, 11%);
+    }
+  }
+}
+
+.router-link-exact-active {
+  color: $primaryColor;
+}
+
+.welcomebox {
+
+  // animation
+  .ml9 {
+    position: relative;
+  }
+
+  .ml9 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .ml9 .letter {
+    transform-origin: 50% 100%;
+    display: inline-block;
+    line-height: 1em;
+  }
+
+  .search {
+    padding: 35px;
+    .select:not(.is-multiple):not(.is-loading)::after {
+      border-color: $primaryColor;
+      right: 1.125em;
+      z-index: 4;
+    }
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .sizer {
+    padding: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input,
+  .select,
+  select,
+  .button {
+    width: 100%;
+  }
+  .control {
+    padding-bottom: 10px;
+  }
+}
