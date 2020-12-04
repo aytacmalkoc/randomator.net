@@ -1,5 +1,5 @@
 <script>
-    import axios from 'axios'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: 'Generator',
@@ -22,26 +22,14 @@
                 this.mobileClass = 'is-grouped'
             }
         },
+        computed: {
+            ...mapGetters([
+                'getPassword'
+            ])
+        },
         methods: {
             generate() {
-                this.generateStatus = true
-                this.copyText = 'copy'
-                axios.post(this.api_url('generate'), {
-                    headers: {
-                        'API_KEY': process.env.VUE_APP_API_KEY
-                    },
-                    random_type: this.randomType,
-                    encryption_type: this.encryptionType,
-                    string_type: this.stringType,
-                    maxLength: this.maxLength
-                }).then(res => {
-                    this.generated = res.data
-                    setTimeout(() => {
-                        this.generateStatus = false
-                    }, 1000)
-                }).catch(err => {
-                    console.log(err)
-                })
+                this.$store.dispatch('createPassword', this.encryptionType)
             },
             onCopySuccess(e) {
                 this.copyText = 'copied'
@@ -103,6 +91,7 @@
                         </div>
                     </fieldset>
                 </form>
+                <p v-if="getPassword"> {{ getPassword }} </p>
                 <p v-if="generated.length">Your generated {{ randomType }} is:<br>
                 <span class="has-text-primary cursor-pointer" v-clipboard:copy="generated" v-clipboard:success="onCopySuccess">{{ generated }}</span> 
                 <span class="has-text-dark cursor-pointer ml-3" v-clipboard:copy="generated" v-clipboard:success="onCopySuccess">{{ copyText }}</span></p>
