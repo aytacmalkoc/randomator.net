@@ -34,6 +34,10 @@
                     <i class="fal fa-hands-helping pr-2"></i>
                     forum
                 </router-link>
+                <router-link to="/login" class="navbar-item">
+                    <i class="fal fa-sign-in-alt pr-2"></i>
+                    login
+                </router-link>
             </div>
         </div>
     </nav>
