@@ -43,15 +43,6 @@
                     console.log(err)
                 })
             },
-            isNumber: (evt) => {
-                evt = (evt) ? evt : window.event;
-                var charCode = (evt.which) ? evt.which : evt.keyCode;
-                if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-                    evt.preventDefault();
-                } else {
-                    return true;
-                }
-            },
             onCopySuccess(e) {
                 this.copyText = 'copied'
             }
@@ -104,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="control" v-if="encryptionType == 'random_string' || randomType == 'string'">
-                                <input class="input" type="text" placeholder="max length" v-model="maxLength" @keypress="isNumber($event)">
+                                <input class="input" type="text" placeholder="max length" v-model="maxLength" @keypress="onlyNumber($event)">
                             </div>
                             <div class="control">
                                 <button type="submit" class="button is-outlined">generate!</button>
